@@ -1,0 +1,48 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+}
+.Navbar h1 a {
+  color: white;
+  font-family: "Lobster", cursive;
+  text-decoration: none;
+}
+.Navbar ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.Navbar ul li {
+  list-style-type: none;
+}
+.Navbar ul li a {
+  color: grey;
+  text-decoration: none;
+}
+.Navbar ul li a:hover {
+  color: white;
+}
+.Navbar button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: large;
+}
+
+.NavLine {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid grey;
+  color: grey;
+}
+
+@media (max-width: 500px) {
+  .Navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .Navbar h1 {
+    display: none;
+  }
+}/*# sourceMappingURL=Navbar.module.css.map */

@@ -1,0 +1,79 @@
+.Footer{
+    // background-image: url(../../assets/images/FooterBackground.jpg);
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    background-color: rgb(110, 48, 6);
+    h1{
+        color: white;
+        font-family: 'Lobster',
+        cursive;
+    }
+    p{
+        color: grey;
+        font-weight: bold;
+    }
+    .email{
+        border-left: 1px solid grey;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        textarea{
+            border-radius: 20px;
+            padding: 5px;
+        }
+    }
+    .Links1{
+        border-top: 1px solid grey;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        div{
+            display: flex;
+            flex-direction: column;
+            h3{
+                color: white;
+            }
+            a{
+                color: grey;
+                text-decoration: none;
+                font-weight: bold;
+                &:hover{
+                    color: white;
+                }
+            }
+        }
+    }
+    .Links2{
+        display: flex;
+        color: grey;
+        align-items: center;
+        font-weight: bold;
+        border-top: 1px solid grey;
+        ul{
+            display: flex;
+            span {
+                color: white;
+                font-weight: bold;
+            }
+            li{
+                list-style: none;
+                a{
+                    color: grey;
+                    font-weight: bold;
+                    text-decoration: none;
+                    &:hover{
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media(max-width: 500px) {
+    .Footer{
+        
+    }
+}

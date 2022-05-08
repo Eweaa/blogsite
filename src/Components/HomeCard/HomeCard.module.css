@@ -1,0 +1,46 @@
+.HomeCard {
+  border-bottom: 1px solid grey;
+  width: 40%;
+}
+.HomeCard .HomeCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.HomeCard .HomeCardHeader h2 {
+  color: white;
+}
+.HomeCard .HomeCardHeader a {
+  text-decoration: none;
+  color: white;
+}
+.HomeCard p {
+  color: grey;
+}
+.HomeCard .Tools {
+  display: flex;
+  justify-content: flex-end;
+}
+.HomeCard .Tools button {
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+.HomeCard textarea {
+  border: none;
+  background-color: transparent;
+  color: white;
+  width: 100%;
+  height: auto;
+  resize: none;
+  overflow: visible;
+}
+.HomeCard textarea:focus {
+  outline: none;
+}
+
+@media (max-width: 500px) {
+  .HomeCard {
+    width: 100%;
+  }
+}/*# sourceMappingURL=HomeCard.module.css.map */

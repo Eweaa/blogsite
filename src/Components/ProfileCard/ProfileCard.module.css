@@ -1,0 +1,32 @@
+.ProfileCard {
+  margin: 0 auto;
+  width: 80%;
+}
+.ProfileCard h2 {
+  color: white;
+}
+.ProfileCard .Description {
+  color: grey;
+  overflow: hidden;
+  height: 70%;
+}
+.ProfileCard .Description p {
+  word-break: break-all;
+}
+.ProfileCard .Tools button {
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+.ProfileCard .Tools button::after {
+  content: "";
+  margin: 0 auto;
+  width: 0px;
+  height: 3px;
+  display: block;
+  background: white;
+  transition: 300ms;
+}
+.ProfileCard .Tools button:hover::after {
+  width: 80%;
+}/*# sourceMappingURL=ProfileCard.module.css.map */
