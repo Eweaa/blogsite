@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AppCSS from './App.module.css';
 import {Routes, Route} from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
@@ -7,6 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Pages/Home/Home';
 import Profile from './Pages/Profile/Profile';
 import Bookmarks from './Pages/Bookmarks/Bookmarks';
+import axios from 'axios';
+
+
 
 function App() {
   return (
