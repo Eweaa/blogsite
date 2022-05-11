@@ -22,7 +22,7 @@ const Profile = () => {
 
 
     const getData = () => {
-        axios.get("https://jsonplaceholder.typicode.com/posts").then(res => {
+        axios.get("http://localhost:8080/posts/get").then(res => {
             console.log('res:' ,res)
             setPosts(res.data)
         });
@@ -53,13 +53,29 @@ const Profile = () => {
 
     const cancelNewPostHandler = () => setNewPost(false)
     
-
-
-        
+    // {
+    //     "userName": "mhmd",
+    //     "posts": [
+    //         {
+    //             "id": 1,
+    //             "title": "Kubernetes Post",
+    //             "content": "Master Kubernetes which is impossible",
+    //             "creationDate": "2022-03-24",
+    //             "comments": [
+    //                 {
+    //                     "id": 2,
+    //                     "content": "Master Kubernetes which is impossible",
+    //                     "creationDate": "2022-03-24"
+    //                 }
+    //             ]
+    //         }
+    //     ],
+    //     "bookmarks": []
+    // }
+ 
         return(
-
             <div className='mt-4'>
-                {posts.map((post) => <ProfileCard key = {post.id} title = {post.title} description = {post.description}/>)}
+                {posts.map((post) => <ProfileCard key = {post.id} title = {post.title} description = {post.content}/>)}
                 <div>
                     <Backdrop show={newPost} clicked={cancelNewPostHandler}/>
                     <div className={[ProfileCSS.NewPost,'p-2'].join(' ')} style={{transform: newPost ? 'translateY(0)' : 'translateY(-100vh)',opacity: newPost ? '1' : '0'}}>
@@ -75,5 +91,3 @@ const Profile = () => {
 
 
 export default Profile
-
-
