@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Pages/Home/Home';
 import Profile from './Pages/Profile/Profile';
 import Bookmarks from './Pages/Bookmarks/Bookmarks';
-import axios from 'axios';
 
 
 

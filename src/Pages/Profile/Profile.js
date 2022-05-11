@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProfileCard from '../../Components/ProfileCard/ProfileCard';
 import ProfileCSS from './Profile.module.css';
 import * as Icon from 'react-bootstrap-icons';
 import Backdrop from '../../Components/Backdrop/Backdrop';
 import axios from 'axios';
-import { useEffect } from 'react';
 
 const Profile = () => {
 
