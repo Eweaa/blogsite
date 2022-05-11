@@ -29,10 +29,7 @@ const Profile = () => {
         });
     };
 
-    useEffect(() => {
-        getData();
-        console.log('i fire once')
-    },[]);
+    useEffect(() =>  getData(), []);
 
     // const getValue = () => {
     //     let Title = title.value
@@ -53,22 +50,17 @@ const Profile = () => {
         }
     }
 
-    const openNewPostHandler = () => {
-        setNewPost(true)
-    }
+    const openNewPostHandler = () => setNewPost(true)
 
-    const cancelNewPostHandler = () => {
-        setNewPost(false)
-    }
+    const cancelNewPostHandler = () => setNewPost(false)
+    
 
 
         
         return(
 
             <div className='mt-4'>
-                {posts.map((post) => {
-                    return <ProfileCard key = {post.id} title = {post.title} description = {post.description}/>
-                })}
+                {posts.map((post) => <ProfileCard key = {post.id} title = {post.title} description = {post.description}/>)}
                 <div>
                     <Backdrop show={newPost} clicked={cancelNewPostHandler}/>
                     <div className={[ProfileCSS.NewPost,'p-2'].join(' ')} style={{transform: newPost ? 'translateY(0)' : 'translateY(-100vh)',opacity: newPost ? '1' : '0'}}>
