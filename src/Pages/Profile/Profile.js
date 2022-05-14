@@ -12,12 +12,13 @@ const Profile = () => {
     const [sendDataValues, setsendDataValues] = useState({title:'',content:''})
 
 
+    // gets the values from the inputs
     const getValues = (event) => {
         const value = event.target.value;
         setsendDataValues({...sendDataValues,[event.target.name]:value})
     }
 
-
+    // gets the data from the backend
     const getData = () => {
         axios.get("https://jsonplaceholder.typicode.com/posts").then(res => {
             console.log('res:' ,res)
@@ -25,31 +26,34 @@ const Profile = () => {
         });
     };
 
+    // sends the data to the backend
     const sendData = () => {
         axios.post('',sendDataValues)
     }
 
-
+    // calls getData()
     useEffect(() =>  getData(), []);
 
+    
+    // validates and calls sendData()
     const addPostHandler = () => {
-        console.log(sendDataValues)
         if (sendDataValues.title === '' && sendDataValues.content === ''){alert('There isn\'t A title nor A description.')}
         else if (sendDataValues.title === ''){alert('There is no title')}
         else if (sendDataValues.content === ''){alert('There is no content')}
         else{
-            alert('data is entered')
-            cancelNewPostHandler()
+            console.log(sendDataValues)
+            sendData();
+            cancelNewPostHandler();
         }
     }
 
+    // shows the input from
     const openNewPostHandler = () => setNewPost(true)
 
+    // hides the input form
     const cancelNewPostHandler = () => setNewPost(false)
     
 
-
-        
         return(
 
             <div className='mt-4'>
