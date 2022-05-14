@@ -9,16 +9,13 @@ const Profile = () => {
 
     const [posts, setPosts] = useState([]);
     const [newPost, setNewPost] = useState(false);
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
+    const [sendDataValues, setsendDataValues] = useState({title:'',content:''})
 
-    
-    // getValue = () => {
-    //     const title = this.title.value;
-    //     const description = this.description.value;
-    //     console.log(title);
-    //     this.setState({title:title,description:description});
-    // }
+
+    const getValues = (event) => {
+        const value = event.target.value;
+        setsendDataValues({...sendDataValues,[event.target.name]:value})
+    }
 
 
     const getData = () => {
@@ -28,21 +25,18 @@ const Profile = () => {
         });
     };
 
+    const sendData = () => {
+        axios.post('',sendDataValues)
+    }
+
+
     useEffect(() =>  getData(), []);
 
-    // const getValue = () => {
-    //     let Title = title.value
-    //     let Description = description.value
-    //     setTitle(Title)
-    //     setTitle(Description)
-    // }
-
     const addPostHandler = () => {
-        let Title = title;
-        let Description = description;
-        if (Title === '' && Description === ''){alert('There isn\'t A title nor A description.')}
-        else if (Title === ''){alert('There is no title')}
-        else if (Description === ''){alert('There is no description')}
+        console.log(sendDataValues)
+        if (sendDataValues.title === '' && sendDataValues.content === ''){alert('There isn\'t A title nor A description.')}
+        else if (sendDataValues.title === ''){alert('There is no title')}
+        else if (sendDataValues.content === ''){alert('There is no content')}
         else{
             alert('data is entered')
             cancelNewPostHandler()
@@ -63,8 +57,8 @@ const Profile = () => {
                 <div>
                     <Backdrop show={newPost} clicked={cancelNewPostHandler}/>
                     <div className={[ProfileCSS.NewPost,'p-2'].join(' ')} style={{transform: newPost ? 'translateY(0)' : 'translateY(-100vh)',opacity: newPost ? '1' : '0'}}>
-                        <input type="text" placeholder='Title' className='p-2 my-1' />
-                        <textarea name="" id="" cols="30" rows="10" placeholder='Text' className='p-2 mt-1' ></textarea>
+                        <input name='title' value={sendDataValues.title} type="text" placeholder='Title' className='p-2 my-1' onChange={getValues}/>
+                        <textarea name='content' value={sendDataValues.content} cols="30" rows="10" placeholder='Text' className='p-2 mt-1' onChange={getValues}></textarea>
                         <button onClick={addPostHandler}>Submit</button>
                     </div>
                 </div>
