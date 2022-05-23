@@ -9,18 +9,16 @@ const Profile = () => {
 
     const [posts, setPosts] = useState([]);
     const [newPost, setNewPost] = useState(false);
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
-
-    
-    // getValue = () => {
-    //     const title = this.title.value;
-    //     const description = this.description.value;
-    //     console.log(title);
-    //     this.setState({title:title,description:description});
-    // }
+    const [sendDataValues, setsendDataValues] = useState({title:'',content:''})
 
 
+    // gets the values from the inputs
+    const getValues = (event) => {
+        const value = event.target.value;
+        setsendDataValues({...sendDataValues,[event.target.name]:value})
+    }
+
+    // gets the data from the backend
     const getData = () => {
         axios.get("http://localhost:8080/posts/get").then(res => {
             console.log('res:' ,res)
@@ -28,59 +26,44 @@ const Profile = () => {
         });
     };
 
+    // sends the data to the backend
+    const sendData = () => {
+        axios.post('http://localhost:8080/users/mhmd/posts/post',sendDataValues)
+    }
+
+    // calls getData()
     useEffect(() =>  getData(), []);
 
-    // const getValue = () => {
-    //     let Title = title.value
-    //     let Description = description.value
-    //     setTitle(Title)
-    //     setTitle(Description)
-    // }
-
+    
+    // validates and calls sendData()
     const addPostHandler = () => {
-        let Title = title;
-        let Description = description;
-        if (Title === '' && Description === ''){alert('There isn\'t A title nor A description.')}
-        else if (Title === ''){alert('There is no title')}
-        else if (Description === ''){alert('There is no description')}
+        if (sendDataValues.title === '' && sendDataValues.content === ''){alert('There isn\'t A title nor A description.')}
+        else if (sendDataValues.title === ''){alert('There is no title')}
+        else if (sendDataValues.content === ''){alert('There is no content')}
         else{
-            alert('data is entered')
-            cancelNewPostHandler()
+            console.log(sendDataValues)
+            sendData();
+            window.location.reload(false);
+            cancelNewPostHandler();
         }
     }
 
+    // shows the input from
     const openNewPostHandler = () => setNewPost(true)
 
+    // hides the input form
     const cancelNewPostHandler = () => setNewPost(false)
     
-    // {
-    //     "userName": "mhmd",
-    //     "posts": [
-    //         {
-    //             "id": 1,
-    //             "title": "Kubernetes Post",
-    //             "content": "Master Kubernetes which is impossible",
-    //             "creationDate": "2022-03-24",
-    //             "comments": [
-    //                 {
-    //                     "id": 2,
-    //                     "content": "Master Kubernetes which is impossible",
-    //                     "creationDate": "2022-03-24"
-    //                 }
-    //             ]
-    //         }
-    //     ],
-    //     "bookmarks": []
-    // }
- 
+
         return(
+
             <div className='mt-4'>
-                {posts.map((post) => <ProfileCard key = {post.id} title = {post.title} description = {post.content}/>)}
+                {posts.map((post) => <ProfileCard key = {post.id} title = {post.title} description = {post.description}/>)}
                 <div>
                     <Backdrop show={newPost} clicked={cancelNewPostHandler}/>
                     <div className={[ProfileCSS.NewPost,'p-2'].join(' ')} style={{transform: newPost ? 'translateY(0)' : 'translateY(-100vh)',opacity: newPost ? '1' : '0'}}>
-                        <input type="text" placeholder='Title' className='p-2 my-1' />
-                        <textarea name="" id="" cols="30" rows="10" placeholder='Text' className='p-2 mt-1' ></textarea>
+                        <input name='title' value={sendDataValues.title} type="text" placeholder='Title' className='p-2 my-1' onChange={getValues}/>
+                        <textarea name='content' value={sendDataValues.content} cols="30" rows="10" placeholder='Text' className='p-2 mt-1' onChange={getValues}></textarea>
                         <button onClick={addPostHandler}>Submit</button>
                     </div>
                 </div>
@@ -91,3 +74,5 @@ const Profile = () => {
 
 
 export default Profile
+
+
