@@ -1,0 +1,46 @@
+.NewPost{
+    // display: none;
+    // background-color: grey;
+    position: fixed;
+    z-index: 100;
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    background-color: #111111;
+    transition: all 0.5s ease-in-out;
+    input{
+        width: 100%;
+        display: block;
+        background-color: transparent;
+        border: 1px solid grey;
+        color: white;
+        border-radius: 5px;
+    }
+    textarea{
+        background-color: transparent;
+        border-radius: 5px;
+        color: white;
+        resize: none;
+        width: 100%;
+    }
+    
+    button{
+        background-color: white;
+        border: none;
+        border-radius: 50px;
+        font-weight: bold;
+    }
+}
+
+.NewPostButton{
+    background-color: #111111;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+    border: none;
+    color: white;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}

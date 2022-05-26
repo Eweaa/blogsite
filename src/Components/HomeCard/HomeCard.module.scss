@@ -12,6 +12,45 @@
             text-decoration: none;
             color: white;
         }
+        .optionButton{
+            position: relative;
+            display: inline-block;
+            color: white;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            transition: all ease-in-out 0.3s;
+            position: relative;
+            &:hover{
+                background-color: grey;
+            }
+            .optionButton{
+                color: white;
+                background-color: transparent;
+                border: none;
+                &::after{
+                    content: '\2807';
+                }
+            }
+            .options{
+                display: flex;
+                opacity: 0;
+                flex-direction: column;
+                position: absolute;
+                border: 1px solid red;
+                z-index: 10;
+                transition: all ease-in-out 0.2s;
+                button{
+                    color: white;
+                    border: none;
+                    background-color: transparent;
+                    font-weight: bold;
+                    font-size: medium;
+                }
+            }
+        }
 
     }
     p{

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .HomeCard {
   border-bottom: 1px solid grey;
   width: 40%;
@@ -13,6 +14,45 @@
 .HomeCard .HomeCardHeader a {
   text-decoration: none;
   color: white;
+}
+.HomeCard .HomeCardHeader .optionButton {
+  position: relative;
+  display: inline-block;
+  color: white;
+  font-weight: bolder;
+  font-size: x-large;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  transition: all ease-in-out 0.3s;
+  position: relative;
+}
+.HomeCard .HomeCardHeader .optionButton:hover {
+  background-color: grey;
+}
+.HomeCard .HomeCardHeader .optionButton .optionButton {
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+.HomeCard .HomeCardHeader .optionButton .optionButton::after {
+  content: "⠇";
+}
+.HomeCard .HomeCardHeader .optionButton .options {
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  position: absolute;
+  border: 1px solid red;
+  z-index: 10;
+  transition: all ease-in-out 0.2s;
+}
+.HomeCard .HomeCardHeader .optionButton .options button {
+  color: white;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: medium;
 }
 .HomeCard p {
   color: grey;
