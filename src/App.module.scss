@@ -1,6 +1,13 @@
 .App{
-    background-color:#111111;
     width: 100%;
+}
+
+#light{
+    background: #e4e4e4;
+}
+
+#dark{
+    background: #111111;
 }
 
 ::-webkit-scrollbar{

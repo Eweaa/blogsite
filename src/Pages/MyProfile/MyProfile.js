@@ -31,6 +31,7 @@ const MyProfile = () => {
         axios.post('http://localhost:8080/users/mhmd/posts/post',sendDataValues)
     }
 
+
     // calls getData()
     useEffect(() =>  getData(), []);
 
@@ -44,30 +45,23 @@ const MyProfile = () => {
             console.log(sendDataValues)
             sendData();
             window.location.reload(false);
-            cancelNewPostHandler();
         }
     }
 
-    // shows the input from
-    const openNewPostHandler = () => setNewPost(true)
-
-    // hides the input form
-    const cancelNewPostHandler = () => setNewPost(false)
-    
 
         return(
 
             <div className='mt-4'>
                 {posts.map((post) => <ProfileCard key = {post.id} title = {post.title} description = {post.description}/>)}
                 <div>
-                    <Backdrop show={newPost} clicked={cancelNewPostHandler}/>
+                    <Backdrop show={newPost} clicked={() => setNewPost(false)}/>
                     <div className={[MyProfileCSS.NewPost,'p-2'].join(' ')} style={{transform: newPost ? 'translateY(0)' : 'translateY(-100vh)',opacity: newPost ? '1' : '0'}}>
                         <input name='title' value={sendDataValues.title} type="text" placeholder='Title' className='p-2 my-1' onChange={getValues}/>
                         <textarea name='content' value={sendDataValues.content} cols="30" rows="10" placeholder='Text' className='p-2 mt-1' onChange={getValues}></textarea>
                         <button onClick={addPostHandler}>Submit</button>
                     </div>
                 </div>
-                <button className={[MyProfileCSS.NewPostButton].join(' ')} onClick={openNewPostHandler}><Icon.VectorPen /></button>
+                <button className={[MyProfileCSS.NewPostButton].join(' ')} onClick={() => setNewPost(true)}><Icon.VectorPen /></button>
             </div>
         )
 }

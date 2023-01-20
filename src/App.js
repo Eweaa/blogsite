@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import AppCSS from './App.module.css';
+import './App.css';
 import {Routes, Route} from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
@@ -10,6 +11,7 @@ import Bookmarks from './Pages/Bookmarks/Bookmarks';
 import Profile from './Pages/Profile/Profile';
 import axios from 'axios';
 
+export const ThemeContext = React.createContext(null);
 
 
 
@@ -24,7 +26,10 @@ function App() {
   ]
 
 
-
+  const [theme, setTheme] = React.useState('dark')
+  const changeTheme = () => {
+    setTheme((curr) => (curr === 'light' ? 'dark' : 'light'))
+  }
   // Getting usernames to put them in the route 
 
   const [users, setUsers] = React.useState([]) 
@@ -50,19 +55,21 @@ function App() {
 
   let array = ['profile1','profile2','ass']
   return (
-    <div className={AppCSS.App}>
-      <Navbar />
-      <button onClick={logdata}>Click</button>
-      <Routes>
-        <Route path='/' index element={<Home />}/>
-        <Route path='profile' element={<MyProfile />}/>
-        <Route path='bookmarks' element={<Bookmarks />}/>
-        {paths.map((path, index) => 
-        <Route path={path} element={<Profile />} key={index}/>
-        )}
-      </Routes>
-      {/* <Footer /> */}
-    </div>
+    <ThemeContext.Provider value={{theme, changeTheme}}>
+      <div className={AppCSS.App} id={theme}>
+        <Navbar changeTheme={changeTheme}/>
+        {/* <button onClick={logdata}>Click</button> */}
+        <Routes>
+          <Route path='/' index element={<Home />}/>
+          <Route path='profile' element={<MyProfile />}/>
+          <Route path='bookmarks' element={<Bookmarks />}/>
+          {paths.map((path, index) => 
+          <Route path={path} element={<Profile />} key={index}/>
+          )}
+        </Routes>
+        {/* <Footer /> */}
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
