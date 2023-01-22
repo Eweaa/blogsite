@@ -1,18 +1,14 @@
 import React, { useEffect } from 'react';
 import AppCSS from './App.module.css';
 import './App.css';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Outlet} from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './Pages/Home/Home';
-import MyProfile from './Pages/MyProfile/MyProfile';
-import Bookmarks from './Pages/Bookmarks/Bookmarks';
 import Profile from './Pages/Profile/Profile';
 import axios from 'axios';
 
 export const ThemeContext = React.createContext(null);
-
 
 
 function App() {
@@ -22,10 +18,11 @@ function App() {
     {username:'profile1'},
     {username:'profile2'},
     {username:'ass'},
-    {username:'ass4'}
+    {username:'ass4'},
+    {username:'LoganRoy'}
   ]
 
-
+  
   const [theme, setTheme] = React.useState('dark')
   const changeTheme = () => {
     setTheme((curr) => (curr === 'light' ? 'dark' : 'light'))
@@ -59,10 +56,8 @@ function App() {
       <div className={AppCSS.App} id={theme}>
         <Navbar changeTheme={changeTheme}/>
         {/* <button onClick={logdata}>Click</button> */}
+        <Outlet />
         <Routes>
-          <Route path='/' index element={<Home />}/>
-          <Route path='profile' element={<MyProfile />}/>
-          <Route path='bookmarks' element={<Bookmarks />}/>
           {paths.map((path, index) => 
           <Route path={path} element={<Profile />} key={index}/>
           )}
