@@ -1,61 +1,34 @@
-@charset "UTF-8";
 .HomeCard {
   border-bottom: 1px solid grey;
-  width: 40%;
-}
-.HomeCard .HomeCardHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.HomeCard .HomeCardHeader h2 {
+  width: 100%;
   color: white;
 }
 .HomeCard .HomeCardHeader a {
   text-decoration: none;
   color: white;
 }
-.HomeCard .HomeCardHeader .optionButton {
-  position: relative;
-  display: inline-block;
-  color: white;
-  font-weight: bolder;
-  font-size: x-large;
+.HomeCard .HomeCardHeader img {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  transition: all ease-in-out 0.3s;
-  position: relative;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 5px;
 }
-.HomeCard .HomeCardHeader .optionButton:hover {
-  background-color: grey;
-}
-.HomeCard .HomeCardHeader .optionButton .optionButton {
-  color: white;
-  background-color: transparent;
-  border: none;
-}
-.HomeCard .HomeCardHeader .optionButton .optionButton::after {
-  content: "⠇";
-}
-.HomeCard .HomeCardHeader .optionButton .options {
+.HomeCard .HomeCardBody {
   display: flex;
-  opacity: 0;
-  flex-direction: column;
-  position: absolute;
-  border: 1px solid red;
-  z-index: 10;
-  transition: all ease-in-out 0.2s;
-}
-.HomeCard .HomeCardHeader .optionButton .options button {
+  justify-content: space-between;
   color: white;
-  border: none;
-  background-color: transparent;
-  font-weight: bold;
-  font-size: medium;
+  text-decoration: none;
 }
-.HomeCard p {
-  color: grey;
+.HomeCard .HomeCardBody h3 {
+  text-transform: capitalize;
+}
+.HomeCard .HomeCardBody img {
+  width: 20%;
+  border-radius: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .HomeCard .Tools {
   display: flex;
@@ -65,22 +38,4 @@
   border: none;
   background-color: transparent;
   color: white;
-}
-.HomeCard textarea {
-  border: none;
-  background-color: transparent;
-  color: white;
-  width: 100%;
-  height: auto;
-  resize: none;
-  overflow: visible;
-}
-.HomeCard textarea:focus {
-  outline: none;
-}
-
-@media (max-width: 500px) {
-  .HomeCard {
-    width: 100%;
-  }
 }/*# sourceMappingURL=HomeCard.module.css.map */

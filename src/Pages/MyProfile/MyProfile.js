@@ -4,12 +4,28 @@ import MyProfileCSS from './Profile.module.css';
 import * as Icon from 'react-bootstrap-icons';
 import Backdrop from '../../Components/Backdrop/Backdrop';
 import axios from 'axios';
+import { useAuth } from '../../Auth/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const MyProfile = () => {
 
     const [posts, setPosts] = useState([]);
     const [newPost, setNewPost] = useState(false);
     const [sendDataValues, setsendDataValues] = useState({title:'',content:''})
+    const {currentUser, logout} = useAuth()
+    const [error, setError] = useState('')
+    const navigate = useNavigate()
+
+    const handleLogout = async () => {
+        setError('')
+        try {
+            await logout()
+            navigate('/login')
+        } catch {
+            setError('Failed to Log out')
+        }    
+    }  
+
 
 
     // gets the values from the inputs
@@ -49,21 +65,22 @@ const MyProfile = () => {
     }
 
 
-        return(
+    return(
 
-            <div className='mt-4'>
-                {posts.map((post) => <ProfileCard key = {post.id} title = {post.title} description = {post.description}/>)}
-                <div>
-                    <Backdrop show={newPost} clicked={() => setNewPost(false)}/>
-                    <div className={[MyProfileCSS.NewPost,'p-2'].join(' ')} style={{transform: newPost ? 'translateY(0)' : 'translateY(-100vh)',opacity: newPost ? '1' : '0'}}>
-                        <input name='title' value={sendDataValues.title} type="text" placeholder='Title' className='p-2 my-1' onChange={getValues}/>
-                        <textarea name='content' value={sendDataValues.content} cols="30" rows="10" placeholder='Text' className='p-2 mt-1' onChange={getValues}></textarea>
-                        <button onClick={addPostHandler}>Submit</button>
-                    </div>
+        <div className='mt-4'>
+            <button onClick={handleLogout}>Logout</button>
+            {posts.map((post) => <ProfileCard key = {post.id} title = {post.title} description = {post.description}/>)}
+            <div>
+                <Backdrop show={newPost} clicked={() => setNewPost(false)}/>
+                <div className={[MyProfileCSS.NewPost,'p-2'].join(' ')} style={{transform: newPost ? 'translateY(0)' : 'translateY(-100vh)',opacity: newPost ? '1' : '0'}}>
+                    <input name='title' value={sendDataValues.title} type="text" placeholder='Title' className='p-2 my-1' onChange={getValues}/>
+                    <textarea name='content' value={sendDataValues.content} cols="30" rows="10" placeholder='Text' className='p-2 mt-1' onChange={getValues}></textarea>
+                    <button onClick={addPostHandler}>Submit</button>
                 </div>
-                <button className={[MyProfileCSS.NewPostButton].join(' ')} onClick={() => setNewPost(true)}><Icon.VectorPen /></button>
             </div>
-        )
+            <button className={[MyProfileCSS.NewPostButton].join(' ')} onClick={() => setNewPost(true)}><Icon.VectorPen /></button>
+        </div>
+    )
 }
 
 

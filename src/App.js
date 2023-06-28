@@ -36,7 +36,6 @@ function App() {
 
   const getUsers = () => {
         axios.get("https://jsonplaceholder.typicode.com/posts").then(res => {
-            console.log('res:' ,res)
             setUsers(res.data)
         });
     };
@@ -55,13 +54,7 @@ function App() {
     <ThemeContext.Provider value={{theme, changeTheme}}>
       <div className={AppCSS.App} id={theme}>
         <Navbar changeTheme={changeTheme}/>
-        {/* <button onClick={logdata}>Click</button> */}
         <Outlet />
-        <Routes>
-          {paths.map((path, index) => 
-          <Route path={path} element={<Profile />} key={index}/>
-          )}
-        </Routes>
         {/* <Footer /> */}
       </div>
     </ThemeContext.Provider>

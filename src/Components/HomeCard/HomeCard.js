@@ -38,32 +38,31 @@ const HomeCard = (props) => {
     return(
         
         <div className={[HomeCardCSS.HomeCard,'py-4 mx-2'].join(' ')}>
-            <div className={[HomeCardCSS.HomeCardHeader,'py-2'].join(' ')}>
-                <div>
-                    <h2>{props.title}</h2>
-                    <Link to={props.userName}>@{props.userName}</Link>
-                </div>
-                <div className={HomeCardCSS.optionButton}>
-                    <button className={HomeCardCSS.optionButton} onClick={showOptions}></button>
-                    <div className={HomeCardCSS.options} style={options ? {opacity:'1'} : {opacity:'0'}}>
-                        <button>Edit</button>
-                        <button>Report</button>
-                    </div>
+
+            <div className={HomeCardCSS.HomeCardHeader}>
+                <Link>
+                    <img src={props.writerImg}/>
+                    {props.writer}
+                </Link>
+                
+                <div className="mx-2" style={{display: "inline-block"}}>
+                    {props.date}
                 </div>
             </div>
-            <p>{props.description}</p>
-            <p>{props.date}</p>
-            <div className={HomeCardCSS.Tools}>
+
+            <Link className={[HomeCardCSS.HomeCardBody, 'mt-3'].join(' ')}>
+                <div>
+                    <h3>{props.title}</h3>
+                    <p>{props.details}</p>
+                </div>
+                <img src={props.articaleImg}/>
+            </Link>
+
+            <div className={[HomeCardCSS.Tools, 'mt-3'].join(' ')}>
                 <button onClick={changeIcon}>
                     {bookmarksIcon}
                 </button>
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-reply-fill" viewBox="0 0 16 16">
-                        <path d="M5.921 11.9 1.353 8.62a.719.719 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
-                    </svg>
-                </button>
             </div>
-            <textarea type="text" placeholder="Write A comment"/>
         </div>
     )
     
