@@ -1,5 +1,6 @@
 .Navbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 .Navbar h1 a {
@@ -14,6 +15,15 @@
 }
 .Navbar ul li {
   list-style-type: none;
+}
+.Navbar ul li img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  cursor: pointer;
+  position: relative;
 }
 .Navbar ul li a {
   color: grey;
@@ -34,6 +44,28 @@
   margin: 0 auto;
   border: 1px solid grey;
   color: grey;
+}
+
+.drop {
+  background: #111111;
+  position: absolute;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px grey, -1px -1px 5px grey;
+}
+.drop a {
+  color: white;
+  display: block;
+}
+.drop a:hover {
+  color: white;
+}
+.drop button {
+  font-size: 16px;
+  color: grey;
+}
+.drop button:hover {
+  color: white;
 }
 
 @media (max-width: 500px) {

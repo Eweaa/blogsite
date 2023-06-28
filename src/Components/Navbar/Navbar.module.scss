@@ -1,5 +1,6 @@
 .Navbar{
     display: flex;
+    justify-content: space-between;
     align-items: center;
     h1{
         a{
@@ -15,6 +16,14 @@
         margin: 0;
         li{
             list-style-type: none;
+            img{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                cursor: pointer;
+                position: relative;
+            }
             a{
                 color: grey;
                 text-decoration: none;
@@ -45,6 +54,28 @@
     margin: 0 auto;
     border: 1px solid grey;
     color: grey;
+}
+
+.drop{
+    background: #111111;
+    position: absolute;
+    z-index: 1;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px grey, -1px -1px 5px grey;
+    a{
+        color: white;
+        display: block;
+        &:hover{
+            color: white;
+        }
+    }
+    button{
+        font-size: 16px;
+        color: grey;
+        &:hover{
+            color: white;
+        }
+    }
 }
 
 @media(max-width: 500px){
