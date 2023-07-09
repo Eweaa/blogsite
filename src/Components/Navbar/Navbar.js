@@ -33,7 +33,7 @@ const Navbar = (props) => {
                     {/* <li className='mx-2'><Link to="profile">Profile</Link></li> */}
                     <li onClick={() => setDrop(!drop)}>
                         <img src='https://tvline.com/wp-content/uploads/2023/04/succession-season-4-episode-6-kendall-roy.png?w=620'/>
-                        <div className={[NavbarCSS.drop, 'p-4'].join(' ')} style={{display: drop ? 'block' : 'none'}}>
+                        <div className={[NavbarCSS.drop, 'p-2'].join(' ')} style={{display: drop ? 'block' : 'none'}}>
                             <Link to='/profile' className='p-2'>Profile</Link>
                             <Link to='/bookmarks' className='p-2'>Bookmarks</Link>
                             <button onClick={handleLogout} className='p-2'>Logout</button>

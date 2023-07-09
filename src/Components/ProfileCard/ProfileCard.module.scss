@@ -1,6 +1,9 @@
 .ProfileCard{
     margin: 0 auto;
     width: 80%;
+    // height: 100px;
+    transition: all ease-in-out 0.2s;
+    border-radius: 15px;
     h2{
         color: white;
     }
@@ -31,4 +34,21 @@
             }
         }
     }
+    &:hover{
+        outline: 1px solid white;
+    }
+}
+
+.FullPost{
+    background: #111111;
+    height: 80vh;
+    width: 80%;
+    left: 10%;
+    top: 10%;
+    position: absolute;
+    color: white;
+    z-index: 2000;
+    border-radius: 15px;
+    transition: all ease-in-out 0.5s;
+    overflow: scroll;
 }

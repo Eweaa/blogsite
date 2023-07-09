@@ -16,6 +16,8 @@
   border-radius: 20px;
   border: 1px soild grey;
   outline: none;
+  background: transparent;
+  color: white;
 }
 .Home .RS {
   width: 30%;
