@@ -38,4 +38,10 @@
   border: none;
   background-color: transparent;
   color: white;
+}
+
+@media (width < 1200px) {
+  .HomeCardBody img {
+    display: none !important;
+  }
 }/*# sourceMappingURL=HomeCard.module.css.map */

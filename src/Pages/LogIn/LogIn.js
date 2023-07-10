@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { useAuth } from '../../Auth/AuthContext'
 import { useNavigate, Link } from 'react-router-dom'
 import { Alert, Card, Form, Button } from 'react-bootstrap'
+import LoginCSS from './Login.module.css'
 
 const LogIn = () => {
 
@@ -28,12 +29,19 @@ const LogIn = () => {
     }
 
   return (
-    <div>
-        <Card>
-            <Card.Body>
-                <h2 className='text-center mb-4'>Log In</h2>
+    <div className={LoginCSS.Login}>
+        <div className={[LoginCSS.LS, 'p-1'].join(' ')}>
+            <div>
+            </div>
+        </div>
+        <div className={[LoginCSS.RS, 'p-1'].join(' ')}>
+            <h1>The Blog</h1>
+            <div className={LoginCSS.form}>
+                <h1 className='text-center'>Welcome Back</h1>
+                <h6 className='text-center mb-4'>Please Enter Your Details</h6>
                 {error && <Alert variant='danger'>{error}</Alert>}
-                <Form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
+
                     <Form.Group id='email'>
                         <Form.Label>Email</Form.Label>
                         <Form.Control type='email' ref={emailRef} required />
@@ -48,11 +56,12 @@ const LogIn = () => {
                     <div className='w-100 text-center mt-2'>
                         <Link to='/forgot-password'>Forgot Password</Link>
                     </div>
-                </Form>
-            </Card.Body>
-        </Card>
-        <div className='w-100 text-center mt-2'>
-            Don't Have An Account? <Link to='/signup'>Sign Up</Link>
+                </form>
+                <p className='text-center'>
+                    Don't Have An Account? <Link to='/signup'>Sign Up</Link>
+                </p>
+            </div>
+
         </div>
     </div>
   )

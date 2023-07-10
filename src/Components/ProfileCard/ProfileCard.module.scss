@@ -48,7 +48,7 @@
     position: absolute;
     color: white;
     z-index: 2000;
-    border-radius: 15px;
+    border-radius: 15px !important;
     transition: all ease-in-out 0.5s;
     overflow: scroll;
 }

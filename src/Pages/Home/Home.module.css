@@ -12,10 +12,9 @@
 .Home .LS h2 {
   border-bottom: 1px solid grey;
 }
-.Home .LS input {
+.Home .LS .SI {
+  border: 1px solid grey;
   border-radius: 20px;
-  border: 1px soild grey;
-  outline: none;
   background: transparent;
   color: white;
 }
@@ -46,4 +45,13 @@
   color: black;
   background: white;
   border: 1px soild black;
+}
+
+@media (width < 1200px) {
+  .LS {
+    width: 100% !important;
+  }
+  .RS {
+    display: none;
+  }
 }/*# sourceMappingURL=Home.module.css.map */

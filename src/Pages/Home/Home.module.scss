@@ -10,10 +10,9 @@
         h2{
             border-bottom: 1px solid grey;
         }
-        input{
+        .SI{
+            border: 1px solid grey;
             border-radius: 20px;
-            border: 1px soild grey;
-            outline: none; 
             background: transparent;
             color: white;
         }
@@ -46,3 +45,31 @@
         }
     }
 }
+
+@media (width < 1200px) {
+    .LS{
+        width: 100%;
+    }
+    .RS{
+        display: none;
+    }
+}
+
+
+// @media (max-width: 1200px){
+//     .LS{
+//         width: 100%;
+//     }
+// }
+
+// @media (width < 1200px){
+//     .LS{
+//         width: 100%;
+//     }
+// }
+
+// @media (max-width: 600px){
+//     .RS{
+//         display: none;
+//     }
+// }

@@ -62,7 +62,7 @@ const Home = () => {
 
             <div className={HomeCSS.LS}> 
                 <div>
-                    <input type='text' placeholder='Search' className='p-1' onChange={FilterSearch}/>
+                    <input type='text' placeholder='Search' className={[HomeCSS.SI, 'p-2'].join(' ')} onChange={FilterSearch}/>
                 </div>
                 <div>
                     <h2 className='mt-2 p-2'>Articles</h2>

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import MyProfile from './Pages/MyProfile/MyProfile';
 import Bookmarks from './Pages/Bookmarks/Bookmarks';
 import Home from './Pages/Home/Home';
@@ -48,4 +47,3 @@ root.render(
     <RouterProvider router={router}/>
   </AuthProvider>
 );
-reportWebVitals();

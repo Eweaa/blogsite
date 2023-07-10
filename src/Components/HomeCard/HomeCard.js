@@ -70,7 +70,7 @@ const HomeCard = (props) => {
             <Link className={[HomeCardCSS.HomeCardBody, 'mt-3'].join(' ')}>
                 <div>
                     <h3>{props.title}</h3>
-                    <p>{props.details}</p>
+                    <p style={{wordBreak:'break-word'}}>{props.details}</p>
                 </div>
                 <img src={props.articaleImg}/>
             </Link>
