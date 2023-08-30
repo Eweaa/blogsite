@@ -53,7 +53,10 @@ const Home = () => {
         updatedList = updatedList.filter((item) => {
             return item.title.toLowerCase().indexOf(query.toLowerCase()) !== -1;
         });
-        setFilteredList(updatedList);
+        if(updatedList.length !== 0)
+        {
+            setFilteredList(updatedList);
+        }
     }
 
 
@@ -67,7 +70,6 @@ const Home = () => {
                 <div>
                     <h2 className='mt-2 p-2'>Articles</h2>
                     <div>
-                        {/* {data.map((d) => <HomeCard key={d.id} writerImg={d.writerImg} writer={d.writer} date={d.date} title={d.title} details={d.details} articaleImg={d.articaleImg}/>)} */}
                         {filteredList.map((item, index) => (
                             <HomeCard key={index} writerImg={item.writerImg} writer={item.writer} date={item.date} title={item.title} details={item.details} articaleImg={item.articaleImg}/>
                         ))}

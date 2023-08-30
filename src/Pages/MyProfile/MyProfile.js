@@ -107,7 +107,6 @@ Aenean vel maximus est. Maecenas pulvinar dictum consequat. Integer id nibh sapi
         axios.post('http://localhost:8080/users/mhmd/posts/post',sendDataValues)
     }
 
-
     // calls getData()
     useEffect(() =>  getData(), []);
 

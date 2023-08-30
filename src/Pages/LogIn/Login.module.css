@@ -34,4 +34,17 @@
 }
 .Login .RS a {
   text-decoration: none;
+}
+
+@media (width < 500px) {
+  .LS {
+    display: none;
+  }
+  .RS {
+    width: 100% !important;
+    text-align: center;
+  }
+  .RS .form {
+    width: 100%;
+  }
 }/*# sourceMappingURL=Login.module.css.map */
