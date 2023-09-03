@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import HomeCSS from './Home.module.css';
 import HomeCard from '../../Components/HomeCard/HomeCard';
+import { useTheme } from '../../Context/ThemeContext';
 
 const Home = () => {
 
@@ -12,7 +13,7 @@ const Home = () => {
             writer: "Son Heung-min",
             date: "29 Dec 2021",
             title: "will AI end humnaity",
-            details: "dgbdsfgfsdgfaiugsdiuyfagiyusagfiusagfiuyguyiguyiguyigyuigiudsgfiuysgduifwegfuye",
+            details: `But experts have rubbished the idea. "This science fiction concept is unlikely to become a reality in the coming decades if ever at all," the Stop Killer Robots campaign group wrote in a 2021 report. However, the group has warned that giving machines the power to make decisions on life and death is an existential risk.`,
             articaleImg: "https://cdn.vox-cdn.com/thumbor/8l0gFhDyIR-9nZD_OAk3RILpn2E=/0x0:2743x2057/1400x1050/filters:focal(0x0:2743x2057):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/37304644/Terminator-Salvation.0.0.jpg"
         },
         {
@@ -21,7 +22,7 @@ const Home = () => {
             writer: "Christiane Amanpour",
             date: "29 Dec 2021",
             title: "Trump sues E. Jean Carroll for defamation over rape claim",
-            details: "dgbdsfgfsdgfaiugsdiuyfagiyusagfiusagfiuyguyiguyiguyigyuigiudsgfiuysgduifwegfuye",
+            details: `Donald Trump has sued E Jean Carroll for defamation, alleging she falsely accused him of rape after a jury in a civil trial found that he ...`,
             articaleImg: "https://media.cnn.com/api/v1/images/stellar/prod/230621202747-11-donald-trump-neutral.jpg?c=16x9&q=h_720,w_1280,c_fill"
         },
         {
@@ -30,7 +31,7 @@ const Home = () => {
             writer: "Son Heung-min",
             date: "29 Dec 2021",
             title: "apple is raising iCloud proces in many markets - find out if you're affected",
-            details: "dgbdsfgfsdgfaiugsdiuyfagiyusagfiusagfiuyguyiguyiguyigyuigiudsgfiuysgduifwegfuye",
+            details: "Apple has quietly increased the prices of popular iCloud+ plans in many markets - including the UK. So, is your plan increasing?",
             articaleImg: "https://images.macrumors.com/t/GkFeuDOWh_ST4JJCTMVHyVjuZ2s=/1600x0/article-new/2021/06/iCloud-General-Feature.jpg"
         },
         {
@@ -45,6 +46,8 @@ const Home = () => {
     ]
 
     const [filteredList, setFilteredList] = new useState(data);
+
+    const Theme = useTheme();
 
     const FilterSearch = (e) => {
         const query = e.target.value;
@@ -61,7 +64,7 @@ const Home = () => {
 
 
     return(
-        <div className={[HomeCSS.Home,'p-4'].join(' ')}>
+        <div className={[Theme ? HomeCSS.dark : HomeCSS.light, HomeCSS.Home, 'p-4'].join(' ')}>
 
             <div className={HomeCSS.LS}> 
                 <div>
@@ -84,7 +87,7 @@ const Home = () => {
 
                 <div className={[HomeCSS.Suggest, 'mt-4'].join(' ')}>
                     <div>
-                        <img src='https://m.media-amazon.com/images/M/MV5BNTRiMWRlZDItYmUzOS00YmVhLTkwY2EtMjQwMDllOTEzNWE2XkEyXkFqcGdeQXVyNjUxMjc1OTM@._V1_.jpg'/>
+                        <img src='https://m.media-amazon.com/images/M/MV5BNTRiMWRlZDItYmUzOS00YmVhLTkwY2EtMjQwMDllOTEzNWE2XkEyXkFqcGdeQXVyNjUxMjc1OTM@._V1_.jpg' alt=''/>
                         Thomas Friedman
                     </div>
                     <button className='p-2'>Follow</button>
@@ -92,7 +95,7 @@ const Home = () => {
 
                 <div className={[HomeCSS.Suggest, 'mt-4'].join(' ')}>
                     <div>
-                        <img src='https://egs.edu/wp-content/uploads/2019/06/slavoj_zizek_saas-fee.jpg'/>
+                        <img src='https://egs.edu/wp-content/uploads/2019/06/slavoj_zizek_saas-fee.jpg' alt=''/>
                         Slavoj Žižek
                     </div>
                     <button className='p-2'>Follow</button>

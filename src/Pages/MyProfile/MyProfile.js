@@ -6,6 +6,7 @@ import Backdrop from '../../Components/Backdrop/Backdrop';
 import axios from 'axios';
 import { useAuth } from '../../Auth/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../../Context/ThemeContext';
 
 const MyProfile = () => {
 
@@ -15,6 +16,8 @@ const MyProfile = () => {
     const {currentUser, logout} = useAuth()
     const [error, setError] = useState('')
     const navigate = useNavigate()
+
+    const Theme = useTheme();
 
     const SD = [
         {
@@ -126,7 +129,7 @@ Aenean vel maximus est. Maecenas pulvinar dictum consequat. Integer id nibh sapi
 
     return(
 
-        <div className='mt-4'>
+        <div className={[Theme ? '' : MyProfileCSS.light, 'mt-4'].join(' ')}>
             {SD.map((post, index) => <ProfileCard key = {index} title = {post.title} description = {post.description}/>)}
             <div>
                 <Backdrop show={newPost} clicked={() => setNewPost(false)}/>
@@ -136,12 +139,10 @@ Aenean vel maximus est. Maecenas pulvinar dictum consequat. Integer id nibh sapi
                     <button onClick={addPostHandler}>Submit</button>
                 </div>
             </div>
-            <button className={[MyProfileCSS.NewPostButton].join(' ')} onClick={() => setNewPost(true)}><Icon.VectorPen /></button>
+            <button className={Theme ? MyProfileCSS.NewPostButton : MyProfileCSS.NewPostButtonLight} onClick={() => setNewPost(true)}><Icon.VectorPen /></button>
         </div>
     )
 }
 
 
 export default MyProfile
-
-

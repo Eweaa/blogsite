@@ -1,9 +1,28 @@
-.light {
-  background: #000;
+.light h1 a {
+  color: black !important;
 }
 
-.dark {
-  color: blue;
+.dropLight {
+  background: #fafafa;
+  position: absolute;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px grey, -1px -1px 5px grey;
+}
+.dropLight a {
+  color: #111111;
+  display: block;
+}
+.dropLight a:hover {
+  color: #111111;
+}
+.dropLight button {
+  font-size: 16px;
+  color: grey;
+  font-weight: bold;
+}
+.dropLight button:hover {
+  color: #111111;
 }
 
 .Navbar {
@@ -43,7 +62,7 @@
 .Navbar button {
   background-color: transparent;
   border: none;
-  color: white;
+  color: grey;
   font-size: large;
 }
 
@@ -66,13 +85,6 @@
   display: block;
 }
 .drop a:hover {
-  color: white;
-}
-.drop button {
-  font-size: 16px;
-  color: grey;
-}
-.drop button:hover {
   color: white;
 }
 

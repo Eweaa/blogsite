@@ -1,3 +1,26 @@
+.light{
+    color: black !important;
+    .LS{
+        input{
+            color: black !important;
+        }
+    }
+    .Suggest{
+        button{
+            color: black !important;
+            border: 1px solid black !important;
+            &:hover{
+                color: white !important;
+                background: black !important;
+                // border: 1px soild black;
+            }
+        }
+    }
+}
+// .dark{
+
+// }
+
 .Home{
     display: flex;
     justify-content: space-between;

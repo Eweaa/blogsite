@@ -1,9 +1,32 @@
 .light{
-    background: #000;
+    h1{
+        a{
+            color: black !important;
+        }
+    }
 }
 
-.dark{
-    color: blue;
+.dropLight{
+    background: #fafafa;
+    position: absolute;
+    z-index: 1;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px grey, -1px -1px 5px grey;
+    a{
+        color: #111111;
+        display: block;
+        &:hover{
+            color: #111111;
+        }
+    }
+    button{
+        font-size: 16px;
+        color: grey;
+        font-weight: bold;
+        &:hover{
+            color: #111111;
+        }
+    }
 }
 
 .Navbar{
@@ -44,7 +67,7 @@
     button{
         background-color: transparent;
         border: none;
-        color: white;
+        color: grey;
         font-size: large;
     }
 }
@@ -77,13 +100,13 @@
             color: white;
         }
     }
-    button{
-        font-size: 16px;
-        color: grey;
-        &:hover{
-            color: white;
-        }
-    }
+    // button{
+    //     font-size: 16px;
+    //     color: grey;
+    //     &:hover{
+    //         color: white;
+    //     }
+    // }
 }
 
 @media(max-width: 500px){

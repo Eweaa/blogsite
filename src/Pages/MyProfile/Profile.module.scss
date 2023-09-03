@@ -1,3 +1,49 @@
+.NewPostButtonLight{
+    background-color: #fafafa;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+    // border: 1px solid #111111;
+    color: #111111;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.NewPostLight{
+    position: fixed;
+    z-index: 100;
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    background-color: #fafafa;
+    transition: all 0.5s ease-in-out;
+    input{
+        width: 100%;
+        display: block;
+        background-color: transparent;
+        border: 1px solid grey;
+        color: #111111;
+        border-radius: 5px;
+    }
+    textarea{
+        background-color: transparent;
+        border-radius: 5px;
+        color: #111111;
+        resize: none;
+        width: 100%;
+    }
+    
+    button{
+        background-color: #111111;
+        border: none;
+        border-radius: 50px;
+        font-weight: bold;
+    }
+}
+
+
 .NewPost{
     // display: none;
     // background-color: grey;
@@ -13,7 +59,7 @@
         display: block;
         background-color: transparent;
         border: 1px solid grey;
-        color: white;
+        color: #fafafa;
         border-radius: 5px;
     }
     textarea{

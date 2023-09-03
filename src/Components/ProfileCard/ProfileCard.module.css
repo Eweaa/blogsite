@@ -1,3 +1,55 @@
+.light {
+  margin: 0 auto;
+  width: 80%;
+  transition: all ease-in-out 0.2s;
+  border-radius: 15px;
+}
+.light h2 {
+  color: black;
+}
+.light .Description {
+  color: grey;
+  overflow: hidden;
+  height: 70%;
+}
+.light .Description p {
+  word-break: break-all;
+}
+.light .Tools button {
+  border: none;
+  background-color: transparent;
+  color: #111111;
+}
+.light .Tools button::after {
+  content: "";
+  margin: 0 auto;
+  width: 0px;
+  height: 3px;
+  display: block;
+  background: #111111;
+  transition: 300ms;
+}
+.light .Tools button:hover::after {
+  width: 80%;
+}
+.light:hover {
+  outline: 1px solid #111111;
+}
+
+.FullPostLight {
+  background: #fafafa;
+  height: 80vh;
+  width: 80%;
+  left: 10%;
+  top: 10%;
+  position: absolute;
+  color: #111111;
+  z-index: 2000;
+  border-radius: 15px !important;
+  transition: all ease-in-out 0.5s;
+  overflow: auto;
+}
+
 .ProfileCard {
   margin: 0 auto;
   width: 80%;
@@ -5,7 +57,7 @@
   border-radius: 15px;
 }
 .ProfileCard h2 {
-  color: white;
+  color: #fafafa;
 }
 .ProfileCard .Description {
   color: grey;
@@ -18,7 +70,7 @@
 .ProfileCard .Tools button {
   border: none;
   background-color: transparent;
-  color: white;
+  color: #fafafa;
 }
 .ProfileCard .Tools button::after {
   content: "";
@@ -26,14 +78,14 @@
   width: 0px;
   height: 3px;
   display: block;
-  background: white;
+  background: #fafafa;
   transition: 300ms;
 }
 .ProfileCard .Tools button:hover::after {
   width: 80%;
 }
 .ProfileCard:hover {
-  outline: 1px solid white;
+  outline: 1px solid #fafafa;
 }
 
 .FullPost {
@@ -43,9 +95,9 @@
   left: 10%;
   top: 10%;
   position: absolute;
-  color: white;
+  color: #fafafa;
   z-index: 2000;
   border-radius: 15px !important;
   transition: all ease-in-out 0.5s;
-  overflow: scroll;
+  overflow: auto;
 }/*# sourceMappingURL=ProfileCard.module.css.map */

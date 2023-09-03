@@ -1,3 +1,10 @@
+.light{
+    color: black !important;
+    a{
+        color: black !important;
+    }
+}
+
 .HomeCard{
     border-bottom: 1px solid grey;
     width: 100%;
@@ -26,6 +33,7 @@
         }
         img{
             width: 20%;
+            height: 100%;
             border-radius: 10px;
             object-fit: cover;
         }

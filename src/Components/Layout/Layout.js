@@ -9,7 +9,7 @@ const Layout = () => {
     const theme = useTheme();
 
   return (
-    <div className={theme ? LayoutCSS.dark : LayoutCSS.light}>
+    <div className={[theme ? LayoutCSS.dark : LayoutCSS.light, LayoutCSS.Theme].join(' ')}>
         <Navbar />
         <Outlet />
     </div>
